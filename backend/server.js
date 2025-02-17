@@ -1,20 +1,19 @@
 import express from "express";
 import OpenAI from "openai";
 import dotenv from "dotenv";
-import cors from 'cors';
+import cors from "cors";
+
+dotenv.config(); // Carrega variáveis do .env
+
+const app = express(); // Agora 'app' é inicializado antes de ser usado
+const port = 3000;
 
 app.use(cors()); // Permite conexões do frontend para o backend
-
-dotenv.config();
-
-const app = express();
-const port = 3000;
+app.use(express.json()); // Permite trabalhar com JSON
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, 
 });
-
-app.use(express.json());
 
 app.post("/chat", async (req, res) => {
   try {

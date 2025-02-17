@@ -11,6 +11,14 @@ async function sendMessage() {
     appendMessage("Você", userText);
     userInput.value = "";
 
+    fetch('http://localhost:3000/dados') // Substitua pelo endpoint correto
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // Exibe os dados no console
+    document.getElementById("resultado").innerText = JSON.stringify(data); // Exibe na página
+  })
+  .catch(error => console.error('Erro:', error));
+
     try {
         const response = await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
