@@ -1,4 +1,4 @@
-const apiKey = "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";
+const apiKey = "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";
 const chatBox = document.getElementById("chat-box");
 const userInput = document.getElementById("user-input");
 
