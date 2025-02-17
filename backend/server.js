@@ -1,7 +1,9 @@
 import express from "express";
 import OpenAI from "openai";
 import dotenv from "dotenv";
+import cors from 'cors';
 
+app.use(cors()); // Permite conexões do frontend para o backend
 
 dotenv.config();
 
